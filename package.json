@@ -1,0 +1,17 @@
+{
+  "name": "express-foodpanda",
+  "version": "1.0.0",
+  "description": "foodapp",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "foodpanda"
+  ],
+  "author": "ankidav",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
