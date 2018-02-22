@@ -10,7 +10,21 @@ let middleware=(req,res,next)=>{
     console.log("auth is ",auth) // this line with print the token 
     next();
 }
-app.use('/admin',middleware)
+app.use('/admin/id',middleware)
+
+
+app.get('/admin/:id/user/:userId', (req, res, next) => {
+        console.log("User method")
+        let id = req.params['id'];
+        let userId = req.params['userId'];
+        res.send("User method is working "+id + " userid is "+userId )   
+    })
+
+
+
+
+
+
 
 
 app.get('/user/id',(req,res,next)=>{
