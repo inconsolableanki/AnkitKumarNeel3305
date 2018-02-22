@@ -1,6 +1,12 @@
 const Express = require('express')
+const bodyParser = require('body-parser')
 
-var app = Express();
+
+
+const app = Express();
+
+app.use(bodyParser.json());
+
 
 let middleware=(req,res,next)=>{
 
@@ -10,7 +16,7 @@ let middleware=(req,res,next)=>{
     console.log("auth is ",auth) // this line with print the token 
     next();
 }
-app.use('/admin/id',middleware)
+app.use('/',middleware)
 
 
 app.get('/admin/:id/user/:userId', (req, res, next) => {
@@ -19,8 +25,14 @@ app.get('/admin/:id/user/:userId', (req, res, next) => {
         let userId = req.params['userId'];
         res.send("User method is working "+id + " userid is "+userId )   
     })
-
-
+    
+    
+    app.post('/admin', (req, res, next) => { //post data
+            let body = req.body;
+            console.log(body)
+            res.send("admin post "+ JSON.stringify(body))
+        })
+        
 
 
 
