@@ -2,6 +2,8 @@ const Express = require('express')
 const bodyParser = require('body-parser')
 const routerIndex = require('./routes/index')
 const config = require('config')
+const gobleErrorHandler = require("./error-handler/global-error-handler")
+
 
 let hostConfig = config.get('appConfig.hostConfig')
 
@@ -13,6 +15,8 @@ const app = Express();
 
 app.use(routerIndex)
 app.use(bodyParser.json())
+
+app.use(gobleErrorHandler)
 app.get("/",(req,res,next)=>{
 
     res.send("HELLO WORLD")

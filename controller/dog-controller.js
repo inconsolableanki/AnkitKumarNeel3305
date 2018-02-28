@@ -1,6 +1,6 @@
 
-
-createDog = (req, res, next) => {
+var CustomeError = require("../error-handler/custome-error")
+  createDog = (req, res, next) => {
         console.log("Create dog called")
         res.send("Create dog called")
     }
@@ -12,8 +12,10 @@ createDog = (req, res, next) => {
     
     getAllDog = (req, res, next) => {
         console.log("getAll dog called")
-        res.send("getAll dog called")
+       res.send("getAll dog called")
+        
     }
+
     
     getDogById = (req, res, next) => {
         console.log("get dog by id called")
